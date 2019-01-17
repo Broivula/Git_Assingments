@@ -5,3 +5,5 @@ git add git-intro/
 git commit -m "initial commit"
 git status
 git push --set-upstream origin master
+git copy <link>
+
