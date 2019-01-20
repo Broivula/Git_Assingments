@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { HttpClient} from "@angular/common/http";
+import 'rxjs/add/operator/toPromise'
 
 class Pic {
   constructor(
@@ -19,12 +20,22 @@ class Pic {
 export class HomePage {
   title = 'Kikkel';
   picData : Object;
+  photos : Object;
 
   constructor(private http : HttpClient ) {
 
   }
   ngOnInit () {
-    this.http.get('./assets/test.json').subscribe( res =>{ this.picData = res;  console.log(this.picData);});
+    this.http.get('http://media.mw.metropolia.fi/wbma/media?start=10&limit=10')
+      .toPromise().then( res => {
+      this.picData = res;
+    //  console.log(this.picData);
+      for( let entry in this.picData)
+      {
+        this.picData[entry].filename = ('http://media.mw.metropolia.fi/wbma/uploads/' + this.picData[entry].filename);
+      }
+
+    })
 
   }
 

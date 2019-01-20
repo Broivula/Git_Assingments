@@ -10,7 +10,7 @@
   <ion-list>
     <ion-item *ngFor ="let image of picData">
       <ion-thumbnail slot="start">
-        <img [src]="image.thumbnail">
+        <img [src]="image.filename">
       </ion-thumbnail>
       <h2>{{image.title}}</h2>
       <p>{{image.details}}</p>
