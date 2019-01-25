@@ -28,9 +28,9 @@ export class HomePage {
       this.picArray = data.map((pic : IPic) => {
         this.media.getSingleMedia(pic.file_id).subscribe( (singlePic : IPic) => {
          pic.thumbnails =   {
-            160 : singlePic.thumbnails["160"],
-            320 : singlePic.thumbnails["320"],
-            640 : singlePic.thumbnails["640"],
+            160 : singlePic.thumbnails["w160"],
+            320 : singlePic.thumbnails["w320"],
+            640 : singlePic.thumbnails["w640"],
           };
           }
         );

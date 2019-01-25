@@ -13,7 +13,8 @@
         <img *ngIf="pic.thumbnails" [src]="apiUploadUrl+ pic.thumbnails['320']">
       </ion-thumbnail>
       <h2>{{pic.title}}</h2>
-      <p>{{pic.details}}</p>
+      <p>{{pic.details}}</p><br>
+      <p>{{pic.description}}</p>
       <button ion-button clear item-end (click)="photoViewerLaunch">View</button>
     </ion-item>
   </ion-list>
