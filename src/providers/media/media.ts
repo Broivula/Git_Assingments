@@ -24,4 +24,17 @@ export class MediaProvider {
     return this.http.get<IPic>(this.apiUrl+ '/media/' + id);
   }
 
+  register (){
+
+  }
+
+  login (){
+   /* this.http.get<IPic>(this.apiUrl+ '/login/' ).subscribe(loginInfo => {
+      console.log(loginInfo);
+    })*/
+  }
+
+  checkIfUserExists () {
+
+  }
 }

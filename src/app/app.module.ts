@@ -6,30 +6,41 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule} from "@angular/common/http";
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { HomePageModule } from '../pages/home/home.module';
 import { MediaProvider } from '../providers/media/media';
+import { TabsPageModule} from "../pages/tabs/tabs.module";
+import { LoginRegisterPageModule } from "../pages/login-register/login-register.module";
+import { LogoutPageModule } from "../pages/logout/logout.module";
+import { HomePage } from "../pages/home/home";
+import { TabsPage } from "../pages/tabs/tabs";
+import { Validators } from "@angular/forms";
 
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
   ],
   imports: [
-    BrowserModule,
     IonicModule.forRoot(MyApp),
+    BrowserModule,
+    HomePageModule,
     HttpClientModule,
+    TabsPageModule,
+    LoginRegisterPageModule,
+    LogoutPageModule
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    TabsPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MediaProvider,
+    Validators
   ]
 })
 export class AppModule {}

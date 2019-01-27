@@ -27,20 +27,20 @@ export class HomePage {
       this.picData = data;
       this.picArray = data.map((pic : IPic) => {
         this.media.getSingleMedia(pic.file_id).subscribe( (singlePic : IPic) => {
-         pic.thumbnails =   {
-            160 : singlePic.thumbnails["w160"],
-            320 : singlePic.thumbnails["w320"],
-            640 : singlePic.thumbnails["w640"],
-          };
+            pic.thumbnails =   {
+              160 : singlePic.thumbnails["w160"],
+              320 : singlePic.thumbnails["w320"],
+              640 : singlePic.thumbnails["w640"],
+            };
           }
         );
         return pic
       })
-  })};
+    })};
 
 
   ionViewDidLoad () {
     this.getAllFiles();
-    }
+  }
 
 }

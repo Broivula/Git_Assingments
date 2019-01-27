@@ -1,0 +1,27 @@
+<ion-content>
+  <h1>TEST</h1>
+
+    <form [formGroup]="form" (ngSubmit)="saveDetails(form.value)">
+      <ion-list>
+        <ion-item margin-bottom>
+          <ion-label>Your Name</ion-label>
+          <ion-input type="text" formControlName="firstname"></ion-input>
+        </ion-item>
+
+        <ion-item margin-bottom>
+          <ion-label>Your Email address</ion-label>
+          <ion-input type="text" formControlName="lastname"></ion-input>
+        </ion-item>
+
+
+
+        <ion-item margin-bottom>
+          <button ion-button color="primary"
+                  text-center
+                  block
+                  [disabled]="!form.valid">Send your message</button>
+        </ion-item>
+
+      </ion-list>
+    </form>
+</ion-content>
