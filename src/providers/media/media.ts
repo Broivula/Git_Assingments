@@ -28,13 +28,16 @@ export class MediaProvider {
 
   }
 
-  login (){
-   /* this.http.get<IPic>(this.apiUrl+ '/login/' ).subscribe(loginInfo => {
-      console.log(loginInfo);
-    })*/
+  login (loginObject){
+    this.http.post(this.apiUrl + '/login', loginObject).subscribe(res => {
+      console.log(res);
+    })
+
   }
 
-  checkIfUserExists () {
-
+  checkIfUserExists (loginObject) {
+    this.http.get(this.apiUrl + '/users/username/' + loginObject.firstname, loginObject).subscribe( res => {
+      console.log(res);
+    })
   }
 }

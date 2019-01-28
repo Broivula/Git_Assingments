@@ -26,8 +26,11 @@ export class LoginRegisterPage {
     ) {
     this.form = this.formbuilder.group({
       firstname:['', Validators.required],
-      lastname:['', Validators.minLength(8)]
+      password:['', Validators.minLength(8)]
     });
+  }
+  loginSendForm() {
+    this.media.checkIfUserExists(this.form.value);
   }
 
 
