@@ -16,7 +16,7 @@ export class HomePage {
 
   constructor(
     private http : HttpClient,
-    private media : MediaProvider
+    private media : MediaProvider,
   ) {}
 
 

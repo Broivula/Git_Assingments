@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators} from "@angular/forms";
 import { MediaProvider} from "../../providers/media/media";
+import { ILoginResponse } from "../../interfaces/pic";
 /**
  * Generated class for the LoginRegisterPage page.
  *
@@ -25,19 +26,17 @@ export class LoginRegisterPage {
     public media: MediaProvider,
     ) {
     this.form = this.formbuilder.group({
-      firstname:['', Validators.required],
+      username:['', Validators.required],
       password:['', Validators.minLength(8)]
     });
   }
   loginSendForm() {
-    this.media.checkIfUserExists(this.form.value);
-  }
-
-
-  callLogin () {
-    //make the call to providers media login with the user info
-   // this.media.login();
-  }
+    this.media.login(this.form.value).subscribe((res : ILoginResponse)=> {
+      localStorage.setItem('token', res.token);
+      this.media.token = res.token;
+      this.media.logged = true;
+      this.navCtrl.parent.select(0);
+    })}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginRegisterPage');

@@ -18,3 +18,18 @@ export interface Thumbnail
   320?: string;
   640?: string;
 }
+
+export interface IUser {
+  user_id?: number;
+  username: string;
+  password?: string
+  email?: string;
+  full_name: string;
+  data_created?: Date;
+}
+
+export interface ILoginResponse {
+  message: string;
+  token: string
+  user: IUser;
+}

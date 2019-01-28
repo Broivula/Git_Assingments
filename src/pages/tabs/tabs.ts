@@ -3,6 +3,7 @@ import { IonicPage, NavController } from 'ionic-angular';
 import { HomePage } from "../home/home";
 import { LoginRegisterPage } from "../login-register/login-register";
 import { LogoutPage } from "../logout/logout";
+import { MediaProvider} from "../../providers/media/media";
 
 /**
  * Generated class for the TabsPage tabs.
@@ -21,9 +22,21 @@ export class TabsPage {
   homeRoot = HomePage;
   loginRegisterRoot = LoginRegisterPage;
   logoutRoot = LogoutPage;
+  public loginName = null;
 
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController, public media : MediaProvider) {}
+
+  checkIfLoggedIn() {
+    console.log('test');
+    this.loginName = localStorage.firstname;
+    console.log('user logged in: ' + this.loginName);
+
+  }
+
+  ionViewDidLoad (){
+    this.checkIfLoggedIn();
+  }
 
 }
 

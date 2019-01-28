@@ -1,15 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IPic } from "../../interfaces/pic";
+import { ILoginResponse, IPic, IUser } from "../../interfaces/pic";
 
-/*
-  Generated class for the MediaProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class MediaProvider {
+
+  public logged = false;
+  public token = '';
 
   private apiUrl : string = 'http://media.mw.metropolia.fi/wbma';
   constructor(public http: HttpClient) {
@@ -28,11 +26,13 @@ export class MediaProvider {
 
   }
 
-  login (loginObject){
-    this.http.post(this.apiUrl + '/login', loginObject).subscribe(res => {
-      console.log(res);
-    })
+  logout () {
+    localStorage.setItem('token', null);
+    this.logged = false;
+  }
 
+  login (loginObject){
+    return this.http.post<ILoginResponse>(this.apiUrl + '/login', loginObject);
   }
 
   checkIfUserExists (loginObject) {
