@@ -11,9 +11,9 @@ import { MediaProvider } from '../providers/media/media';
 import { TabsPageModule} from "../pages/tabs/tabs.module";
 import { LoginRegisterPageModule } from "../pages/login-register/login-register.module";
 import { LogoutPageModule } from "../pages/logout/logout.module";
-import { HomePage } from "../pages/home/home";
 import { TabsPage } from "../pages/tabs/tabs";
 import { Validators } from "@angular/forms";
+import { PipesModule } from "../pipes/pipes.module";
 
 
 @NgModule({
@@ -27,7 +27,8 @@ import { Validators } from "@angular/forms";
     HttpClientModule,
     TabsPageModule,
     LoginRegisterPageModule,
-    LogoutPageModule
+    LogoutPageModule,
+    PipesModule
 
   ],
   bootstrap: [IonicApp],
