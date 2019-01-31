@@ -10,10 +10,11 @@ import { HomePageModule } from '../pages/home/home.module';
 import { MediaProvider } from '../providers/media/media';
 import { TabsPageModule} from "../pages/tabs/tabs.module";
 import { LoginRegisterPageModule } from "../pages/login-register/login-register.module";
-import { LogoutPageModule } from "../pages/logout/logout.module";
+import { ProfileModule } from "../pages/profile/profile.module";
 import { TabsPage } from "../pages/tabs/tabs";
 import { Validators } from "@angular/forms";
 import { PipesModule } from "../pipes/pipes.module";
+import { ProfilePipe } from "../pipes/profilepipe/profilepipe";
 
 
 @NgModule({
@@ -27,7 +28,7 @@ import { PipesModule } from "../pipes/pipes.module";
     HttpClientModule,
     TabsPageModule,
     LoginRegisterPageModule,
-    LogoutPageModule,
+    ProfileModule,
     PipesModule
 
   ],

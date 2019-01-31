@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { HomePage } from "../home/home";
 import { LoginRegisterPage } from "../login-register/login-register";
-import { LogoutPage } from "../logout/logout";
+import { ProfilePage } from "../profile/profile";
 import { MediaProvider} from "../../providers/media/media";
 
 /**
@@ -21,7 +21,7 @@ export class TabsPage {
 
   homeRoot = HomePage;
   loginRegisterRoot = LoginRegisterPage;
-  logoutRoot = LogoutPage;
+  profileRoot = ProfilePage;
   public loginName = null;
 
 

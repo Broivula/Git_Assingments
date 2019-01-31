@@ -31,10 +31,11 @@ export class LoginRegisterPage {
     });
   }
   loginSendForm() {
-    this.media.login(this.form.value).subscribe((res : ILoginResponse)=> {
+    this.media.login(this.form.value).subscribe(  (res : ILoginResponse)=> {
       localStorage.setItem('token', res.token);
       this.media.token = res.token;
       this.media.logged = true;
+      this.media.getProfilePageInformation();
       this.navCtrl.parent.select(0);
     })}
 
